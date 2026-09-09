@@ -104,28 +104,31 @@ const Portfolio = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons Fixed */}
+        {/* Fixed Dark Filter Buttons */}
         <motion.div 
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {categories.map((cat) => (
-            <motion.button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                activeCategory === cat 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
-                  : 'bg-[#131B2E] text-gray-300 border border-gray-800 hover:bg-gray-800 hover:text-white'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {cat}
-            </motion.button>
-          ))}
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <motion.button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  isActive 
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 border border-blue-500' 
+                    : 'bg-[#182238] text-gray-300 border border-slate-700/60 hover:bg-slate-800 hover:text-white'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {cat}
+              </motion.button>
+            );
+          })}
         </motion.div>
 
         {/* Projects Grid */}
