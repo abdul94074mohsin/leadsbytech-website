@@ -84,7 +84,7 @@ const Portfolio = () => {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-24 px-4 bg-gray-50 dark:bg-[#0B0F17] transition-colors duration-300">
+    <section id="portfolio" className="py-24 px-4 bg-[#0B0F17]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -93,16 +93,18 @@ const Portfolio = () => {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">Our Work</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mt-4">
-            Projects That <span className="text-blue-600 dark:text-blue-400">Deliver Results</span>
+          <span className="px-3.5 py-1.5 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 uppercase tracking-wider">
+            Our Work
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-4">
+            Projects That <span className="text-blue-500">Deliver Results</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm md:text-base mt-4 max-w-2xl mx-auto">
             Explore our portfolio of successful projects — from websites and software to e-commerce and automation solutions.
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* Filter Buttons Fixed */}
         <motion.div 
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -115,8 +117,8 @@ const Portfolio = () => {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 activeCategory === cat 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25 dark:bg-blue-500' 
-                  : 'bg-white dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                  : 'bg-[#131B2E] text-gray-300 border border-gray-800 hover:bg-gray-800 hover:text-white'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -147,7 +149,7 @@ const Portfolio = () => {
                     y: -5,
                     transition: { duration: 0.2 }
                   }}
-                  className="bg-white dark:bg-[#131B2E] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl dark:shadow-none hover:border-blue-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden flex flex-col justify-between"
+                  className="bg-[#131B2E] border border-gray-800/80 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden flex flex-col justify-between"
                 >
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
@@ -156,19 +158,19 @@ const Portfolio = () => {
                   <div className="relative z-10">
                     <div 
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 duration-300"
-                      style={{ backgroundColor: `${project.color}15`, color: project.color }}
+                      style={{ backgroundColor: `${project.color}18`, color: project.color }}
                     >
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                    <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">{project.category}</span>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">{project.desc}</p>
-                    <p className="text-sm text-amber-600 dark:text-amber-400 mt-2 font-semibold">{project.stats}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{project.details}</p>
+                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                    <span className="text-xs text-blue-400 font-medium">{project.category}</span>
+                    <p className="text-gray-300 text-sm mt-2">{project.desc}</p>
+                    <p className="text-sm text-amber-400 mt-2 font-semibold">{project.stats}</p>
+                    <p className="text-xs text-gray-400 mt-1">{project.details}</p>
                   </div>
 
                   <motion.button 
-                    className="mt-6 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1.5"
+                    className="mt-6 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5 relative z-10"
                     whileHover={{ x: 5 }}
                   >
                     View Case Study <ArrowRight size={14} />
