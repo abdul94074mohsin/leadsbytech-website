@@ -12,42 +12,30 @@ const Hero = () => {
     { icon: Globe, label: '40+ Countries', color: 'text-sky-400' },
   ];
 
-  const trustBadges = [
-    { label: 'MSME Registered', sub: 'Govt. of India' },
-    { label: '4.9/5 Client Rating', sub: '98% Satisfaction' },
-    { label: 'Top Rated Agency', sub: 'Upwork Verified' },
-    { label: 'Enterprise Grade', sub: 'Security & Compliance' },
-  ];
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#030712] text-white">
-      {/* Cloudflare Grid Background */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#0B0F17] text-white pt-20">
+      {/* Background Grid Pattern */}
       <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+        className="absolute inset-0 z-0 opacity-15 pointer-events-none" 
         style={{
-          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
         }}
       />
 
       {/* Top Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-orange-500/10 blur-[130px] pointer-events-none rounded-full z-0" />
+      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[300px] bg-orange-500/10 blur-[120px] pointer-events-none rounded-full z-0" />
 
-      {/* 3D Canvas Container */}
-      <div className="absolute inset-0 z-0 opacity-80">
-        <Hero3D />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/70 via-transparent to-[#030712]" />
-      </div>
-      
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           
-          {/* Left Column */}
+          {/* Left Column: Text Content */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInLeft}
+            className="z-10"
           >
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -72,7 +60,6 @@ const Hero = () => {
               No monthly bills. Forever.
             </p>
             
-            {/* Metrics Bar */}
             <div className="flex flex-wrap gap-6 mt-8 pt-6 border-t border-slate-800/80">
               {trustItems.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -82,7 +69,6 @@ const Hero = () => {
               ))}
             </div>
             
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
               <motion.button 
                 whileHover={{ scale: 1.02 }}
@@ -102,27 +88,10 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Right Column Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:grid grid-cols-2 gap-4"
-          >
-            {trustBadges.map((item, index) => (
-              <div 
-                key={index} 
-                className="group p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-orange-500/40 transition-all duration-300 backdrop-blur-md relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10">
-                  <CheckCircle2 className="w-5 h-5 text-orange-400 mb-3 opacity-80" />
-                  <p className="text-base font-bold text-white tracking-tight">{item.label}</p>
-                  <p className="text-xs text-slate-400 mt-1">{item.sub}</p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+          {/* Right Column: 3D Spline Canvas Container */}
+          <div className="relative w-full h-[450px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
+            <Hero3D />
+          </div>
 
         </div>
       </div>
