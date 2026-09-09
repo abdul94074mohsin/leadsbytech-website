@@ -35,7 +35,7 @@ const Hero = () => {
 
       {/* Hero Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column: Text Content */}
           <motion.div
@@ -95,9 +95,36 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Right Column: Interactive 3D Mesh Container */}
-          <div className="relative w-full h-[450px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
-            <Hero3D />
+          {/* Right Column: 3D Globe + Floating Glass Trust Badges */}
+          <div className="relative w-full min-h-[450px] flex items-center justify-center">
+            
+            {/* Background 3D Object */}
+            <div className="absolute inset-0 z-0 opacity-70">
+              <Hero3D />
+            </div>
+
+            {/* Foreground MSME & Rating Badges Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative z-10 grid grid-cols-2 gap-4 w-full max-w-lg"
+            >
+              {trustBadges.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-orange-500/40 transition-all duration-300 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative z-10">
+                    <CheckCircle2 className="w-5 h-5 text-orange-400 mb-3 opacity-90" />
+                    <p className="text-base font-bold text-white tracking-tight">{item.label}</p>
+                    <p className="text-xs text-slate-400 mt-1">{item.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
           </div>
 
         </div>
