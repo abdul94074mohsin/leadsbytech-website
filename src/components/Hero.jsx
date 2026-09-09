@@ -12,8 +12,15 @@ const Hero = () => {
     { icon: Globe, label: '40+ Countries', color: 'text-sky-400' },
   ];
 
+  const trustBadges = [
+    { label: 'MSME Registered', sub: 'Govt. of India' },
+    { label: '4.9/5 Client Rating', sub: '98% Satisfaction' },
+    { label: 'Top Rated Agency', sub: 'Upwork Verified' },
+    { label: 'Enterprise Grade', sub: 'Security & Compliance' },
+  ];
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#0B0F17] text-white pt-20">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#030712] text-white pt-20">
       {/* Background Grid Pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-15 pointer-events-none" 
@@ -88,7 +95,7 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Right Column: 3D Spline Canvas Container */}
+          {/* Right Column: Interactive 3D Mesh Container */}
           <div className="relative w-full h-[450px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
             <Hero3D />
           </div>
