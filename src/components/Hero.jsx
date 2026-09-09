@@ -95,15 +95,15 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Right Column: 3D Globe + Floating Glass Trust Badges */}
+          {/* Right Column: 3D Globe + Floating MSME Badges Grid */}
           <div className="relative w-full min-h-[450px] flex items-center justify-center">
             
-            {/* Background 3D Object */}
-            <div className="absolute inset-0 z-0 opacity-70">
+            {/* Background 3D Sphere */}
+            <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
               <Hero3D />
             </div>
 
-            {/* Foreground MSME & Rating Badges Grid */}
+            {/* Foreground MSME & Trust Badges Grid */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ const Hero = () => {
               {trustBadges.map((item, index) => (
                 <div 
                   key={index} 
-                  className="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-orange-500/40 transition-all duration-300 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+                  className="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 backdrop-blur-xl shadow-2xl relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
